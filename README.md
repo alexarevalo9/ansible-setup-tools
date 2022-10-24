@@ -1,6 +1,6 @@
-# Ansible Setup Tools
+# Setting up tools with Ansible
 
-This is a guide to setting up basic software development tools built on top of [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
+This is a guide to automatically setting up software development tools built on top of [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
 
 > This guide has only been tested with Ubuntu
 
