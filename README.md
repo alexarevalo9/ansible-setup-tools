@@ -4,7 +4,7 @@ This is a guide to setting up basic software development tools built on top of [
 
 > This guide has only been tested with Ubuntu
 
-## Run automatation tasks
+## Run automation tasks
 
 To run the tasks with Ansible just run the following script `./ansible-run.bash`
 
