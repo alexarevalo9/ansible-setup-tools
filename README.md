@@ -1,4 +1,4 @@
-# Ansible setup tools
+# Ansible Setup Tools
 
 This is a guide to setting up basic software development tools built on top of [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
 
