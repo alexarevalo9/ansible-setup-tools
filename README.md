@@ -4,9 +4,18 @@ This is a guide to setting up basic software development tools built on top of [
 
 > This guide has only been tested with Ubuntu
 
+## Tools
+
+ - [x] zsh and oh-my-zsh
+ - [x] npm and node.js
+ - [ ] brave
+ - [ ] vscode
+ - [ ] slack
+ - [ ] discord
+
 ## Run automation tasks
 
-To run the tasks with Ansible just run the following script `./ansible-run.bash`
+To run ansible tasks in your distro just exec the following script `./ansible-run.bash`
 
 ## Test tasks in a docker container
 
