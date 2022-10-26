@@ -3,6 +3,7 @@
   apt:
     name: ["curl", "apt-transport-https"]
   tags: &tags_for_brave_tasks ["brave"]
+  
 - name: Brave Browser archive-keyring.gpg download
   get_url:
     url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg

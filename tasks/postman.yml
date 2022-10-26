@@ -1,0 +1,4 @@
+- name: Postman snap installation
+  become: true
+  shell: snap install postman
+  tags: "postman"

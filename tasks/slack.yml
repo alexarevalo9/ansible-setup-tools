@@ -1,0 +1,4 @@
+- name: Slack snap installation
+  become: true
+  shell: snap install slack
+  tags: "slack"

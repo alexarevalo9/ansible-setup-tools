@@ -1,0 +1,4 @@
+- name: Dbeaver snap installation
+  become: true
+  shell: snap install dbeaver-ce
+  tags: "dbeaver"

@@ -10,3 +10,8 @@
     - include: tasks/zsh-setup.yml
     - include: tasks/node-setup.yml
     - include: tasks/brave.yml
+    - include: tasks/dbaver.yml
+    - include: task/discord.yml
+    - include: task/postman.yml
+    - include: task/slack.yml
+    - include: task/vscode.yml

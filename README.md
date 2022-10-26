@@ -8,10 +8,12 @@ This is a guide to automatically setting up software development tools built on 
 
  - [x] zsh and oh-my-zsh
  - [x] npm and node.js
- - [ ] brave
- - [ ] vscode
- - [ ] slack
- - [ ] discord
+ - [x] brave
+ - [x] vscode
+ - [x] slack
+ - [x] discord
+ - [x] postman
+ - [x] dbaver
 
 ## Run automation tasks
 

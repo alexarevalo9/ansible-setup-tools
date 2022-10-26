@@ -1,13 +1,15 @@
 - name: Install zsh
+  become: true
   apt: name=zsh
   tags: &tags_for_zsh_tasks ["zsh"]
 
 - name: Change shell to zsh
+  become: true
   shell: chsh -s $(which zsh)
   tags: *tags_for_zsh_tasks
 
 - name: Oh-My-Zsh
-  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+  shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   tags: *tags_for_zsh_tasks
 
 - name: Install zsh-autosuggestions
