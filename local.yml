@@ -9,3 +9,4 @@
   tasks:
     - include: tasks/zsh-setup.yml
     - include: tasks/node-setup.yml
+    - include: tasks/brave.yml
