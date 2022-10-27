@@ -5,7 +5,7 @@
 
 - name: Create fonts directory if it does not exist
   ansible.builtin.file:
-    path: /.local/shares/fonts
+    path: /.local/share/fonts
     state: directory
   tags: *tags_for_fonts_tasks
 
@@ -25,14 +25,14 @@
   become: true
   get_url:
     url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.ttf
-    dest: ~/.local/share/fonts
+    dest: /.local/share/fonts
   tags: *tags_for_fonts_tasks
 
 - name: Download Meslo NF Regular Font
   become: true
   get_url:
     url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/MesloLGS%20NF%20Regular.ttf
-    dest: ~/.local/share/fonts
+    dest: /.local/share/fonts
   tags: *tags_for_fonts_tasks
 
 - name: Clear and Regenerate fonts
