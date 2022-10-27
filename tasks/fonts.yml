@@ -1,6 +1,6 @@
 - name: Required libraries Fonts
   become: true
-  shell: add-apt-repository universe && apt-get update && mkdir ~/.local/share/fonts
+  shell: add-apt-repository universe && apt-get update && sudo mkdir ~/.local/share/fonts
   tags: &tags_for_fonts_tasks ["fonts"]
 
 - name: Install FiraCode Font
