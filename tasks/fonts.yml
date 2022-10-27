@@ -15,21 +15,21 @@
     name: fonts-powerline
   tags: *tags_for_fonts_tasks
 
-- name: Install Meslo LG Regular Font
+- name: Download Meslo LG Regular Font
   get_url:
     url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.ttf
     dest: ./Downloads/MesloLGMRegularNerdFontComplete.ttf
-  become: true
-  shell: mv ~/Downloads/MesloLGMRegularNerdFontComplete.ttf ~/.local/share/fonts/MesloLGMRegularNerdFontComplete.ttf
   tags: *tags_for_fonts_tasks
 
-- name: Install Meslo NF Regular Font
+- name: Download Meslo NF Regular Font
   get_url:
     url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/MesloLGS%20NF%20Regular.ttf
     dest: ./Downloads/MesloLGSNFRegular.ttf
-  become: true
-  shell: mv ~/Downloads/MesloLGSNFRegular.ttf ~/.local/share/fonts/MesloLGSNFRegular.ttf
   tags: *tags_for_fonts_tasks
+
+- name: Install Meslo Fonts
+  become: true
+  shell: mv ~/Downloads/MesloLGMRegularNerdFontComplete.ttf ~/.local/share/fonts/MesloLGMRegularNerdFontComplete.ttf && mv ~/Downloads/MesloLGSNFRegular.ttf ~/.local/share/fonts/MesloLGSNFRegular.ttf
 
 - name: Clear and Regenerate fonts
   shell: fc-cache -f -v
