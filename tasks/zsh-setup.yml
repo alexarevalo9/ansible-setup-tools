@@ -9,18 +9,21 @@
   tags: *tags_for_zsh_tasks
 
 - name: Check that the oh-my-zsh exists
+  become: true
   stat:
     path: /home/alex/.oh-my-zsh
   register: oh_my_stats
   tags: *tags_for_zsh_tasks
 
 - name: Oh-My-Zsh
+  become: true
   shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
   tags: *tags_for_zsh_tasks
   when: oh_my_stats.stat.exists == False
   become_user: alex
 
 - name: Install zsh-autosuggestions
+  become: true
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
