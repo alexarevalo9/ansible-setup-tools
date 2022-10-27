@@ -35,14 +35,14 @@
 
 - name: Install Meslo LG Regular Font
   ansible.builtin.copy:
-    src: "~/.local/share/fonts/MesloLGMRegularNerdFontComplete.ttf"
-    dest: "~/Downloads/MesloLGMRegularNerdFontComplete.ttf"
+    src: "~/tmp/MesloLGMRegularNerdFontComplete.ttf"
+    dest: "~/.local/share/fonts/MesloLGMRegularNerdFontComplete.ttf"
   tags: *tags_for_fonts_tasks
 
 - name: Install Meslo NF Regular Font
   ansible.builtin.copy:
-    src: "~/.local/share/fonts/MesloLGSNFRegular.ttf"
-    dest: "~/Downloads/MesloLGSNFRegular.ttf"
+    src: "~/tmp/MesloLGSNFRegular.ttf"
+    dest: "~/.local/share/fonts/MesloLGSNFRegular.ttf"
   tags: *tags_for_fonts_tasks
 
 - name: Clear and Regenerate fonts
