@@ -24,13 +24,13 @@
 - name: Download Meslo LG Regular Font
   get_url:
     url: "https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.ttf"
-    dest: "~/Downloads/MesloLGMRegularNerdFontComplete.ttf"
+    dest: "~/tmp/MesloLGMRegularNerdFontComplete.ttf"
   tags: *tags_for_fonts_tasks
 
 - name: Download Meslo NF Regular Font
   get_url:
     url: "https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/MesloLGS%20NF%20Regular.ttf"
-    dest: "~/Downloads/MesloLGSNFRegular.ttf"
+    dest: "~/tmp/MesloLGSNFRegular.ttf"
   tags: *tags_for_fonts_tasks
 
 - name: Install Meslo LG Regular Font
