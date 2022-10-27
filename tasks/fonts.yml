@@ -23,26 +23,26 @@
 
 - name: Download Meslo LG Regular Font
   get_url:
-    url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.ttf
-    dest: /Downloads/MesloLGMRegularNerdFontComplete.ttf
+    url: "https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.ttf"
+    dest: "~/Downloads/MesloLGMRegularNerdFontComplete.ttf"
   tags: *tags_for_fonts_tasks
 
 - name: Download Meslo NF Regular Font
   get_url:
-    url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/MesloLGS%20NF%20Regular.ttf
-    dest: /Downloads/MesloLGSNFRegular.ttf
+    url: "https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/MesloLGS%20NF%20Regular.ttf"
+    dest: "~/Downloads/MesloLGSNFRegular.ttf"
   tags: *tags_for_fonts_tasks
 
 - name: Install Meslo LG Regular Font
   ansible.builtin.copy:
-    src: /Downloads/MesloLGMRegularNerdFontComplete.ttf
-    dest: /.local/share/fonts/MesloLGMRegularNerdFontComplete.ttf
+    src: "~/.local/share/fonts/MesloLGMRegularNerdFontComplete.ttf"
+    dest: "~/Downloads/MesloLGMRegularNerdFontComplete.ttf"
   tags: *tags_for_fonts_tasks
 
 - name: Install Meslo NF Regular Font
   ansible.builtin.copy:
-    src: /Downloads/MesloLGSNFRegular.ttf
-    dest: /.local/share/fonts/MesloLGSNFRegular.ttf
+    src: "~/.local/share/fonts/MesloLGSNFRegular.ttf"
+    dest: "~/Downloads/MesloLGSNFRegular.ttf"
   tags: *tags_for_fonts_tasks
 
 - name: Clear and Regenerate fonts
