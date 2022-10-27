@@ -9,6 +9,7 @@
   tags: *tags_for_zsh_tasks
 
 - name: Oh-My-Zsh
+  become: true
   shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   tags: *tags_for_zsh_tasks
 
