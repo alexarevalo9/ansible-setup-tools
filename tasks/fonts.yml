@@ -5,7 +5,7 @@
 
 - name: Create fonts directory if it does not exist
   ansible.builtin.file:
-    path: /.local/share/fonts
+    path: /.local/shares/fonts
     state: directory
   tags: *tags_for_fonts_tasks
 
