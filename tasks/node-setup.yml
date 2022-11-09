@@ -1,5 +1,26 @@
-- name: Install nodejs and npm
+- name: Node Setup
   become: true
-  apt:
-    name: ["nodejs", "npm"]
   tags: "node"
+  block:
+    - name: Install nodejs and npm
+      apt:
+        name: ["nodejs", "npm"]
+
+    - name: Install nvm
+      ansible.builtin.shell: >
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
+        creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+
+    - name: Install node versions
+      shell: >
+        . {{ ansible_env.HOME }}/.nvm/nvm.sh && nvm install {{ item }}
+      args:
+        executable: /bin/bash
+        chdir: "{{ ansible_env.HOME }}"
+        creates: "{{ ansible_env.HOME }}/.nvm/versions/{{ item }}"
+      loop:
+          - '--lts'
+          - 'v16.16.0'

@@ -7,7 +7,7 @@ This is a guide to automatically setting up software development tools built on 
 ## Tools
 
  - [x] zsh and oh-my-zsh
- - [x] npm and node.js
+ - [x] npm, nvm and node.js
  - [x] brave
  - [x] vscode
  - [x] slack
@@ -26,4 +26,4 @@ To run ansible tasks in your distro just exec the following script `./ansible-ru
 2. Run docker container
     `docker run --rm -it ubuntu-computer bash`
 3. Run ansible tasks in the container
-	`ansible-playbook local.yml`
+	`ansible-playbook local.yml -t node`
