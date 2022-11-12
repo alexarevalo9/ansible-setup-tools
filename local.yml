@@ -1,4 +1,8 @@
 - hosts: localhost
+  vars:
+    user: "alex"
+    source_key: "./.ssh/id_rsa"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
   pre_tasks:
     - name: Update apt
       become: true
@@ -16,3 +20,4 @@
     - include: tasks/slack.yml
     - include: tasks/vscode.yml
     - include: tasks/fonts.yml
+    - include: tasks/docker.yml

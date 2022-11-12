@@ -7,8 +7,7 @@
         name: ["nodejs", "npm"]
 
     - name: Install nvm
-      ansible.builtin.shell: >
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+      shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
       args:
         executable: /bin/bash
         chdir: "{{ ansible_env.HOME }}"
