@@ -1,7 +1,7 @@
 - name: Node, npm & nvm
   become: true
   become_flags: -i
-  become_user: root
+  become_user: alex
   tags: "node"
   block:
     - name: Install nodejs and npm
