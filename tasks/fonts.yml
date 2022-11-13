@@ -35,7 +35,7 @@
     dest: /usr/share/fonts
   tags: *tags_for_fonts_tasks
 
-- name: Clear and Regenerate fonts\
+- name: Clear and Regenerate fonts
   become: true
   shell: fc-cache -f -v
   tags: *tags_for_fonts_tasks

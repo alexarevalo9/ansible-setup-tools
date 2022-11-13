@@ -3,17 +3,17 @@
   block:
     - name: Create docker directory
       ansible.builtin.file:
-        path: /.docker/cli-plugins
+        path: /docker/cli-plugins
         state: directory
     
     - name: Download docker-compose
       become: true
       get_url:
         url: https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64
-        dest: /.docker/cli-plugins/docker-compose
+        dest: /docker/cli-plugins/docker-compose
     
     - name: Set docker-compose permissions
       become: true
       file:
-        path: /.docker/cli-plugins/docker-compose
+        path: /docker/cli-plugins/docker-compose
         mode: 0755
