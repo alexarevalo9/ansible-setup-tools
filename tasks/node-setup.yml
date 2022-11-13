@@ -1,5 +1,6 @@
 - name: Node, npm & nvm
   become: true
+  become_flags: -i
   tags: "node"
   block:
     - name: Install nodejs and npm
@@ -10,16 +11,16 @@
       shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
       args:
         executable: /bin/bash
-        chdir: "{{ home }}"
-        creates: "{{ home }}/.nvm/nvm.sh"
+        chdir: "$HOME"
+        creates: "$HOME/.nvm/nvm.sh"
 
     - name: Install node versions
       shell: >
-        . {{ home }}/.nvm/nvm.sh && nvm install {{ item }}
+        . $HOME/.nvm/nvm.sh && nvm install {{ item }}
       args:
         executable: /bin/bash
-        chdir: "{{ home }}"
-        creates: "{{ home }}/.nvm/versions/{{ item }}"
+        chdir: "$HOME"
+        creates: "$HOME/.nvm/versions/{{ item }}"
       loop:
           - '--lts'
           - 'v16.16.0'
