@@ -26,4 +26,4 @@ To run ansible tasks in your distro just exec the following script `./ansible-ru
 2. Run docker container
     `docker run --rm -it ubuntu-computer bash`
 3. Run ansible tasks in the container
-	`ansible-playbook local.yml -t docker`
+	`ansible-playbook local.yml -t docker-compose`
