@@ -1,7 +1,5 @@
 - name: Node, npm & nvm
   become: true
-  become_flags: -i
-  become_user: runner
   tags: "node"
   block:
     - name: Install nodejs and npm
