@@ -1,41 +1,32 @@
-- name: Required libraries Fonts
+- name: Fonts
   become: true
-  shell: add-apt-repository universe && apt-get update
-  tags: &tags_for_fonts_tasks ["fonts"]
+  tags: "fonts"
+  block:
+    - name: Required libraries Fonts
+      shell: add-apt-repository universe && apt-get update
 
-- name: Create fonts directory if it does not exist
-  ansible.builtin.file:
-    path: /usr/share/fonts
-    state: directory
-  tags: *tags_for_fonts_tasks
+    - name: Create fonts directory if it does not exist
+      file:
+        path: /usr/share/fonts
+        state: directory
 
-- name: Install FiraCode Font
-  become: true
-  apt:
-    name: fonts-firacode
-  tags: *tags_for_fonts_tasks
+    - name: Install FiraCode Font
+      apt:
+        name: fonts-firacode
 
-- name: Install Powerline Font
-  become: true
-  apt:
-    name: fonts-powerline
-  tags: *tags_for_fonts_tasks
+    - name: Install Powerline Font
+      apt:
+        name: fonts-powerline
 
-- name: Download Meslo LG Regular Font
-  become: true
-  get_url:
-    url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.ttf
-    dest: /usr/share/fonts
-  tags: *tags_for_fonts_tasks
+    - name: Download Meslo LG Regular Font
+      get_url:
+        url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.ttf
+        dest: /usr/share/fonts
 
-- name: Download Meslo NF Regular Font
-  become: true
-  get_url:
-    url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/MesloLGS%20NF%20Regular.ttf
-    dest: /usr/share/fonts
-  tags: *tags_for_fonts_tasks
+    - name: Download Meslo NF Regular Font
+      get_url:
+        url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/MesloLGS%20NF%20Regular.ttf
+        dest: /usr/share/fonts
 
-- name: Clear and Regenerate fonts
-  become: true
-  shell: fc-cache -f -v
-  tags: *tags_for_fonts_tasks
+    - name: Clear and Regenerate fonts
+      shell: fc-cache -f -v

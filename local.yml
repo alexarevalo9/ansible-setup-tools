@@ -22,4 +22,4 @@
     - import_tasks: tasks/vscode.yml
     - import_tasks: tasks/fonts.yml
     - import_tasks: tasks/docker.yml
-    - import_tasks: tasks/docker-compose.yml
+    - import_tasks: tasks/docker-compose-setup.yml

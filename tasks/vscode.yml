@@ -1,27 +1,21 @@
-- name: Required libraries for VSCode
+- name: VSCode
   become: true
-  apt:
-    name: ["wget", "gpg", "apt-transport-https"]
-  tags: &tags_for_vscode_tasks ["vscode"]
-  
-- name: VSCode packages.microsoft.gpg download
-  become: true
-  shell: wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-  tags: *tags_for_vscode_tasks
+  tags: "vscode"
+  block:
+    - name: Required libraries for VSCode
+      apt:
+        name: ["wget", "gpg", "apt-transport-https"]
+      
+    - name: VSCode packages.microsoft.gpg download
+      shell: wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 
-- name: VSCode packages.microsoft.gpg download
-  become: true
-  shell: install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-  tags: *tags_for_vscode_tasks
+    - name: VSCode packages.microsoft.gpg download
+      shell: install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 
-- name: VSCode PPA setting
-  become: true
-  shell: echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
-  tags: *tags_for_vscode_tasks
+    - name: VSCode PPA setting
+      shell: echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
 
-- name: VSCode apt installation
-  become: true
-  apt:
-    update_cache: yes
-    name: code
-  tags: *tags_for_vscode_tasks
+    - name: VSCode apt installation
+      apt:
+        update_cache: yes
+        name: code

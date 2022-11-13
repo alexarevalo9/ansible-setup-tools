@@ -1,30 +1,24 @@
-- name: Install zsh
+- name: ZSH
   become: true
-  apt: name=zsh
-  tags: &tags_for_zsh_tasks ["zsh"]
+  tags: "zsh"
+  block:
+    - name: Install zsh
+      apt: name=zsh
 
-- name: Change shell to zsh
-  become: true
-  shell: chsh -s $(which zsh)
-  tags: *tags_for_zsh_tasks
+    - name: Change shell to zsh
+      shell: chsh -s $(which zsh)
 
-- name: Check that the oh-my-zsh exists
-  become: true
-  stat:
-    path: /home/alex/.oh-my-zsh
-  register: oh_my_stats
-  tags: *tags_for_zsh_tasks
+    - name: Check that the oh-my-zsh exists
+      stat:
+        path: /home/alex/.oh-my-zsh
+      register: oh_my_stats
 
-- name: Oh-My-Zsh
-  become: true
-  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
-  tags: *tags_for_zsh_tasks
-  when: oh_my_stats.stat.exists == False
-  become_user: alex
+    - name: Oh-My-Zsh
+      shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+      when: oh_my_stats.stat.exists == False
+      become_user: alex
 
-- name: Install zsh-autosuggestions
-  become: true
-  ansible.builtin.git:
-    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
-    dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
-  tags: *tags_for_zsh_tasks
+    - name: Install zsh-autosuggestions
+      ansible.builtin.git:
+        repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+        dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
