@@ -11,14 +11,14 @@
         update_cache: true
         state: present
   tasks:
-    - include: tasks/zsh-setup.yml
-    - include: tasks/node-setup.yml
-    - include: tasks/brave.yml
-    - include: tasks/dbaver.yml
-    - include: tasks/discord.yml
-    - include: tasks/postman.yml
-    - include: tasks/slack.yml
-    - include: tasks/vscode.yml
-    - include: tasks/fonts.yml
-    - include: tasks/docker.yml
-    - include: tasks/docker-compose.yml
+    - import_tasks: tasks/zsh-setup.yml
+    - import_tasks: tasks/node-setup.yml
+    - import_tasks: tasks/brave.yml
+    - import_tasks: tasks/dbaver.yml
+    - import_tasks: tasks/discord.yml
+    - import_tasks: tasks/postman.yml
+    - import_tasks: tasks/slack.yml
+    - import_tasks: tasks/vscode.yml
+    - import_tasks: tasks/fonts.yml
+    - import_tasks: tasks/docker.yml
+    - import_tasks: tasks/docker-compose.yml
