@@ -1,8 +1,10 @@
 - name: Docker
   become: true
-  debug:
-    msg: "{{(lookup('env','HOME'))}}"
-  tags: "docker-compose"
+  become_user: "{{ user }}"
+  tasks:
+  - name: Debug
+    debug:
+      msg: "{{ansible_env}}"
   # - name: Create docker directory
   #   file:
   #     path: /home/alex/.docker/cli-plugins
