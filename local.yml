@@ -21,3 +21,4 @@
     - include: tasks/vscode.yml
     - include: tasks/fonts.yml
     - include: tasks/docker.yml
+    - include: tasks/docker-compose.yml
