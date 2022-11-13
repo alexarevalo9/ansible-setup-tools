@@ -6,13 +6,14 @@
       apt:
         name: ["nodejs", "npm"]
 
+    - name: Download nvm
+      get_url:
+        url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh
+        dest: /tmp/install_nvm.sh
+    
     - name: Install nvm
-      shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
-      args:
-        executable: /bin/bash
-        chdir: "/home/alex"
-        creates: "/home/alex/.nvm/nvm.sh"
-
+      shell: bash /tmp/install_nvm.sh
+      
     - name: Install node versions
       shell: >
         . /home/alex/.nvm/nvm.sh && nvm install {{ item }}
