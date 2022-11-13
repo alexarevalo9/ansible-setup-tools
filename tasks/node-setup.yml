@@ -4,6 +4,10 @@
   become_user: "{{ user }}"
   tags: "node"
   block:
+    - name: Debug
+      debug:
+        msg: "{{ ansible_env }}"
+
     - name: Install nodejs and npm
       apt:
         name: ["nodejs", "npm"]
