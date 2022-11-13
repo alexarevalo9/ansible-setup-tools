@@ -1,26 +1,27 @@
 - name: Node, npm & nvm
   become: true
+  become_flags: -i
+  become_user: runner
   tags: "node"
   block:
     - name: Install nodejs and npm
       apt:
         name: ["nodejs", "npm"]
 
-    - name: Download nvm
-      get_url:
-        url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh
-        dest: /tmp/install_nvm.sh
-    
     - name: Install nvm
-      shell: bash /tmp/install_nvm.sh
-      
-    - name: Install node versions
-      shell: >
-        . /home/alex/.nvm/nvm.sh && nvm install {{ item }}
+      shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
       args:
         executable: /bin/bash
-        chdir: "/home/alex"
-        creates: "/home/alex/.nvm/versions/{{ item }}"
+        chdir: "$HOME"
+        creates: "$HOME/.nvm/nvm.sh"
+
+    - name: Install node versions
+      shell: >
+        . $HOME/.nvm/nvm.sh && nvm install {{ item }}
+      args:
+        executable: /bin/bash
+        chdir: "$HOME"
+        creates: "$HOME/.nvm/versions/{{ item }}"
       loop:
           - '--lts'
           - 'v16.16.0'
