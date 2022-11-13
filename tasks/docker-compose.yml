@@ -1,3 +1,9 @@
+- name: Debug
+  type: debug
+  debug:
+    msg: "{{ ansible_env }}"
+  tags: "docker-compose"  
+
 - name: Create docker directory
   become: true
   file:
