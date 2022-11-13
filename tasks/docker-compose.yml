@@ -2,7 +2,7 @@
   become: true
   become_user: "{{ user }}"
   debug:
-    msg: "{{ansible_env}}"
+    msg: "$HOME is {{ ansible_env.HOME }}"
   tags: "docker-compose"
   # - name: Create docker directory
   #   file:
