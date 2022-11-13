@@ -1,26 +1,19 @@
-- name: Debug
-  type: debug
+- name: Docker
+  become: true
   debug:
-    msg: "{{ ansible_env }}"
-  tags: "docker-compose"  
+    msg: "{{ansible_env}}"
+  tags: "docker-compose"
+  # - name: Create docker directory
+  #   file:
+  #     path: /home/alex/.docker/cli-plugins
+  #     state: directory
 
-- name: Create docker directory
-  become: true
-  file:
-    path: /home/alex/.docker/cli-plugins
-    state: directory
-  tags: "docker-compose"  
+  # - name: Download docker-compose
+  #   get_url:
+  #     url: https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64
+  #     dest: /home/alex/.docker/cli-plugins/docker-compose
 
-- name: Download docker-compose
-  become: true
-  get_url:
-    url: https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64
-    dest: /home/alex/.docker/cli-plugins/docker-compose
-  tags: "docker-compose"  
-
-- name: Set docker-compose permissions
-  become: true
-  file:
-    path: /home/alex/.docker/cli-plugins/docker-compose
-    mode: 0755
-  tags: "docker-compose"  
+  # - name: Set docker-compose permissions
+  #   file:
+  #     path: /home/alex/.docker/cli-plugins/docker-compose
+  #     mode: 0755
