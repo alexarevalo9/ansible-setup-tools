@@ -1,7 +1,7 @@
 - name: Docker
   become: true
   debug:
-    msg: "{{ansible_env}}"
+    msg: "{{(lookup('env','HOME'))}}"
   tags: "docker-compose"
   # - name: Create docker directory
   #   file:
