@@ -14,6 +14,12 @@
         executable: /bin/bash
         chdir: "$HOME"
         creates: "$HOME/.nvm/nvm.sh"
+    
+    - name: Setup .profile
+      ansible.builtin.lineinfile:
+        path: ~/.profile
+        line: source ~/.nvm/nvm.sh # This will make sure Node is on the user's PATH
+        create: yes
 
     - name: Install node versions
       shell: >
