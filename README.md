@@ -14,6 +14,8 @@ This is a guide to automatically setting up software development tools built on 
  - [x] discord
  - [x] postman
  - [x] dbaver
+ - [x] docker
+ - [x] docker-compose
 
 ## Run automation tasks
 
