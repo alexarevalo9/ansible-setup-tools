@@ -2,8 +2,6 @@
   vars:
     user: "alex"
     home: "/home/{{ user }}"
-    source_key: "./.ssh/id_rsa"
-    dest_key: "{{ home }}/.ssh/id_rsa"
   pre_tasks:
     - name: Update apt
       become: true
