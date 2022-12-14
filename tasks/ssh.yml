@@ -1,0 +1,38 @@
+- name: SSH configuration
+  become: true
+  tags: "ssh"
+  block:
+    - name: Ensure .ssh directory exists.
+      file:
+        dest: "{{ dest_key | dirname }}"
+        mode: 0700
+        state: directory
+
+    - name: Install personal ssh key
+      copy:
+        src: "{{ source_key }}/{{ item }}"
+        dest: "{{ dest_key }}/{{ item }}"
+        mode: 0600
+      loop: 
+        - id_rsa_personal
+        - id_rsa_tinkin
+
+    - name: Install personal ssh key public
+      copy:
+        src: "{{ source_key }}/{{ item }}.pub"
+        dest: "{{ dest_key }}/{{ item }}.pub"
+        mode: 0644
+      loop: 
+        - id_rsa_personal
+        - id_rsa_tinkin
+
+    - name: Set authorized key took from file
+      authorized_key:
+        user: "{{ user }}"
+        state: present
+        key: "{{ home }}/.ssh/{{ item }}.pub"
+      with_fileglob:
+      - "{{ home }}/.ssh/*.pub"
+      loop: 
+        - id_rsa_personal
+        - id_rsa_tinkin

@@ -1,11 +1,7 @@
-- name: Node, npm & nvm
+- name: NVM
   become: true
   tags: "node"
   block:
-    - name: Install nodejs and npm
-      apt:
-        name: ["nodejs", "npm"]
-
     - name: Download nvm
       get_url:
         url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh
