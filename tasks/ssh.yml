@@ -1,5 +1,6 @@
 - name: SSH configuration
   tags: "ssh"
+  become: true
   block:
     - name: Ensure .ssh directory exists.
       file:
