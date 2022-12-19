@@ -3,7 +3,7 @@
   block:
     - name: Ensure .ssh directory exists.
       file:
-        dest: "{{ dest_key }}/id_rsa_personal"
+        dest: "{{ dest_key }}"
         mode: 0700
         state: directory
 
