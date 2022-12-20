@@ -1,6 +1,4 @@
-- name: Dotfiles configuration
-  tags: "dotfiles"
+- name: Run dotfiles script
   become: true
-  block:
-    - name: Run dotfiles script
-      shell: bash ./scripts/dotfiles.sh
+  script: ./scripts/dotfiles.sh
+  tags: "dotfiles"
