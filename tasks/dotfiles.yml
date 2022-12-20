@@ -1,6 +1,6 @@
 - name: Run dotfiles script
   become: true
-  script: 
-    cmd: ./scripts/dotfiles.sh
+  shell: ./scripts/dotfiles.sh
+  args:
     chdir: "{{ home }}"
   tags: "dotfiles"
