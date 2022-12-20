@@ -11,7 +11,11 @@
         force_apt_get: true
         update_cache: true
         state: present
+    - name: Add dotfiles
+      become: true
+      shell: bash ./scripts/bare.sh
   tasks:
+    - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/zsh-setup.yml
     - import_tasks: tasks/node-setup.yml
     - import_tasks: tasks/brave.yml
@@ -23,4 +27,3 @@
     - import_tasks: tasks/fonts.yml
     - import_tasks: tasks/docker.yml
     - import_tasks: tasks/docker-compose-setup.yml
-    - import_tasks: tasks/ssh.yml
