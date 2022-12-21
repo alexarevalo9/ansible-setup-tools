@@ -21,6 +21,4 @@
         mode: 0777
 
     - name: Run dotfiles script
-      shell: "bash {{ home }}/scripts/dotfiles.sh"
-      args:
-        chdir: "{{ home }}"
+      command: "bash {{ home }}/scripts/dotfiles.sh"
