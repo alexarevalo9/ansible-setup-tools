@@ -1,5 +1,10 @@
+#!/usr/bin/env bash
+
+DIR_1=$1
+DIR_2=$2
+
 function config {
-   /usr/bin/git --git-dir=$1 --work-tree=$2 $@
+   /usr/bin/git --git-dir=$DIR_1 --work-tree=$DIR_2 $@
 }
 mkdir -p .config-backup
 config checkout
