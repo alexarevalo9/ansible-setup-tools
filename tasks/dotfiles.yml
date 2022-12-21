@@ -1,5 +1,14 @@
-- name: Run dotfiles script
-  script: ./scripts/dotfiles.sh
-  args:
-    chdir: "{{ home }}"
+- name: Dotfiles configuration
   tags: "dotfiles"
+  become: true
+  block:
+    - name: Clone bare repo
+      git:
+        repo: 'https://github.com/alexarevalo9/dotfiles.git'
+        dest: "{{ home }}/.cfg"
+        bare: true
+        
+    - name: Run dotfiles script
+      script: ./scripts/dotfiles.sh
+      args:
+        chdir: "{{ home }}"
