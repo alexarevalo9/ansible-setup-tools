@@ -2,6 +2,12 @@
   tags: "dotfiles"
   become: true
   block:
+    - name: Ensure scripts directory exists.
+      file:
+        dest: "{{ home }}/scripts"
+        mode: 0700
+        state: directory
+
     - name: Clone bare repo
       git:
         repo: 'https://github.com/alexarevalo9/dotfiles.git'
