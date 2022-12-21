@@ -5,7 +5,7 @@
     - name: Ensure scripts directory exists.
       file:
         dest: "{{ home }}/scripts"
-        mode: 0700
+        mode: 0777
         state: directory
 
     - name: Clone bare repo
@@ -18,7 +18,7 @@
       copy:
         src: ./scripts/dotfiles.sh
         dest: "{{ home }}/scripts/dotfiles.sh"
-        mode: 0755
+        mode: 0777
 
     - name: Run dotfiles script
       shell: "{{ home }}/scripts/dotfiles.sh"
