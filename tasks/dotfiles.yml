@@ -21,4 +21,4 @@
         mode: 0755
 
     - name: Run dotfiles script
-      script: "{{ home }}/scripts/dotfiles.sh --path {{ home }}/.cfg --home {{ home }}"
+      shell: "bash {{ home }}/scripts/dotfiles.sh {{ home }}/.cfg {{ home }}"
