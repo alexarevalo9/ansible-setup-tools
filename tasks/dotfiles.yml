@@ -7,8 +7,14 @@
         repo: 'https://github.com/alexarevalo9/dotfiles.git'
         dest: "{{ home }}/.cfg"
         bare: true
-        
+    
+    - name: Copy bash script
+      copy:
+        src: ./scripts/dotfiles.sh
+        dest: "{{ home }}/scripts/dotfiles.sh"
+        mode: 0755
+
     - name: Run dotfiles script
-      script: ./scripts/dotfiles.sh
+      shell: "{{ home }}/scripts/dotfiles.sh"
       args:
         chdir: "{{ home }}"
