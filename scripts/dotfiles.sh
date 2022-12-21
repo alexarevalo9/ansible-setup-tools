@@ -1,4 +1,3 @@
-git clone --bare https://github.com/alexarevalo9/dotfiles.git $HOME/.cfg
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
