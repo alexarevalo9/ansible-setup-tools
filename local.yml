@@ -12,8 +12,8 @@
         update_cache: true
         state: present
   tasks:
-    - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/zsh-setup.yml
     - import_tasks: tasks/node-setup.yml
     - import_tasks: tasks/brave.yml
