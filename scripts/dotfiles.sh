@@ -1,5 +1,5 @@
 function config {
-   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+   /usr/bin/git --git-dir={{ home }}/.cfg/ --work-tree={{ home }} $@
 }
 mkdir -p .config-backup
 config checkout
