@@ -1,5 +1,4 @@
 - name: Run dotfiles script
-  become: true
   script: ./scripts/dotfiles.sh
   args:
     chdir: "{{ home }}"
