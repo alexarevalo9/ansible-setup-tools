@@ -5,14 +5,14 @@
     - name: Ensure .ssh directory exists.
       file:
         dest: "{{ dest_key }}"
-        mode: 0700
+        mode: 0777
         state: directory
 
     - name: Install personal ssh key
       copy:
         src: "{{ source_key }}/{{ item }}"
         dest: "{{ dest_key }}/{{ item }}"
-        mode: 0600
+        mode: 0777
       loop: 
         - id_rsa_personal
         - id_rsa_tinkin
@@ -21,7 +21,7 @@
       copy:
         src: "{{ source_key }}/{{ item }}.pub"
         dest: "{{ dest_key }}/{{ item }}.pub"
-        mode: 0644
+        mode: 0777
       loop: 
         - id_rsa_personal
         - id_rsa_tinkin
