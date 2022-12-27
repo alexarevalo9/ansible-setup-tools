@@ -23,3 +23,5 @@
     - name: Run dotfiles script
       become: true
       shell: "bash {{ home }}/scripts/dotfiles.sh {{ home }}/.cfg {{ home }}"
+      args:
+        chdir: "{{ home }}"
