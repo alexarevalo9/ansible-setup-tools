@@ -22,6 +22,6 @@
     - import_tasks: tasks/fonts.yml
     - import_tasks: tasks/docker.yml
     - import_tasks: tasks/docker-compose-setup.yml
-    - import_tasks: tasks/zsh-setup.yml
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/zsh-setup.yml
