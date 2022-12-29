@@ -3,6 +3,7 @@
     user: "alex"
     home: "/home/{{ user }}"
     source_key: "./.ssh"
+    source_files: "./files"
     dest_key: "{{ home }}/.ssh"
   pre_tasks:
     - name: Update apt
@@ -25,3 +26,6 @@
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/zsh-setup.yml
     - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/zsh-plugins.yml
+    - import_tasks: tasks/directories.yml
+    - import_tasks: tasks/files.yml

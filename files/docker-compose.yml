@@ -1,0 +1,43 @@
+version: '3.4'
+services:
+  mongo:
+    image: 'mongo:latest'
+    container_name: mongo
+    restart: always
+    volumes:
+      - ${PWD}/_data/mongo:/data/db
+      - ${PWD}/docker/_mongo/fixtures:/import
+      - ~/.gitconfig:/root/.gitconfig
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: hello123
+    ports: 
+      - 27017:27017
+
+  postgres: 
+    image: 'postgres:latest'
+    container_name: postgres
+    restart: always
+    volumes:
+      - ${PWD}/_data/postgres:/var/lib/postgresql/data
+      - ~/.gitconfig:/root/.gitconfig
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=hello123
+    ports:
+      - '5432:5432'
+      
+  mysql:
+    image: 'mysql:latest'
+    container_name: mysql
+    restart: always
+    volumes:
+      - ${PWD}/_data/mysql:/var/lib/mysql
+      - ~/.gitconfig:/root/.gitconfig
+    environment:
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=hello123
+      - MYSQL_ROOT_PASSWORD=hello123
+      - MYSQL_DATABASE=db
+    ports:
+      - 3306:3306

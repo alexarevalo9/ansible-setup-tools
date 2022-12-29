@@ -1,0 +1,9 @@
+- name: Create Files & Clone Repos
+  become: true
+  tags: "files"
+  block:
+    - name: Copy db's docker compose file
+      copy:
+        src: "{{ source_files }}/docker-compose.yml"
+        dest: "/home/{{ user }}/Docker"
+        mode: 0777
