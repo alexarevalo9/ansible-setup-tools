@@ -1,0 +1,20 @@
+- name: Zoom
+  become: true
+  tags: "zoom"
+  block:
+    - name: Install required system packages
+      apt:
+        pkg:
+          - gdebi
+        state: latest
+        update_cache: true
+    
+    - name: Download Zoom
+      get_url:
+        url: https://zoom.us/client/latest/zoom_amd64.deb
+        dest: /tmp/zoom_amd64.deb
+    
+    - name: Install Zoom
+      apt:
+        deb: /tmp/zoom_amd64.deb
+        state: present

@@ -4,7 +4,7 @@
   block:
     - name: Download Discord
       get_url:
-        url: https://dl.discordapp.net/apps/linux/0.0.22/discord-0.0.22.deb
+        url: https://discordapp.com/api/download?platform=linux&format=deb
         dest: /tmp/discord.deb
 
     - name: Install Discord .deb package
