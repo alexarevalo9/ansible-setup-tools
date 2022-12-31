@@ -13,8 +13,7 @@
     - name: Download nvm
       get_url:
         url: https://raw.githubusercontent.com/nvm-sh/nvm/{{ nvm_latest_version.stdout }}/install.sh
-        dest: /tmp/install_nvm.sh
+        dest: "{{ home }}/tmp/install_nvm.sh"
     
     - name: Install nvm
-      shell: bash /tmp/install_nvm.sh
-      become_user: alex
+      shell: "bash {{ home }}/tmp/install_nvm.sh"

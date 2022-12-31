@@ -29,3 +29,4 @@
     - import_tasks: tasks/zsh-plugins.yml
     - import_tasks: tasks/directories.yml
     - import_tasks: tasks/files.yml
+    - import_tasks: tasks/zoom.yml
