@@ -7,7 +7,7 @@ This is a guide to automatically setting up software development tools built on 
 ## Tools
 
  - [x] zsh and oh-my-zsh
- - [x] npm, nvm and node.js
+ - [x] nvm and node.js
  - [x] brave
  - [x] vscode
  - [x] slack
@@ -16,6 +16,7 @@ This is a guide to automatically setting up software development tools built on 
  - [x] dbaver
  - [x] docker
  - [x] docker-compose
+ - [x] zoom
 
 ## Run automation tasks
 
