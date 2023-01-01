@@ -36,3 +36,9 @@
       loop: 
         - id_rsa_personal
         - id_rsa_tinkin
+    
+    - name: Move ssh config
+      copy:
+        src: "{{ source_key }}/config"
+        dest: "{{ home }}/.ssh/config"
+        mode: 0777
