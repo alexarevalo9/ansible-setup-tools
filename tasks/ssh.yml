@@ -54,7 +54,7 @@
     - name: Add SSH keys with agent
       shell: |
         eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_rsa_personal
-        ssh-add ~/.ssh/id_rsa_tinkin
+        ssh-add {{ home }}/.ssh/id_rsa_personal
+        ssh-add {{ home }}/.ssh/id_rsa_tinkin
       args:
         chdir: "{{ home }}"
