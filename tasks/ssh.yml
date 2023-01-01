@@ -14,7 +14,7 @@
       copy:
         src: "{{ source_key }}/{{ item }}"
         dest: "{{ dest_key }}/{{ item }}"
-        mode: 0755
+        mode: 0600
         owner: "{{ user }}"
         group: "{{ user }}"
       loop: 
@@ -25,7 +25,7 @@
       copy:
         src: "{{ source_key }}/{{ item }}.pub"
         dest: "{{ dest_key }}/{{ item }}.pub"
-        mode: 0755
+        mode: 0600
         owner: "{{ user }}"
         group: "{{ user }}"
       loop: 
@@ -50,3 +50,16 @@
         mode: 0755
         owner: "{{ user }}"
         group: "{{ user }}"
+    
+    - name: Start SSH Agent
+      shell: eval "$(ssh-agent -s)"
+      args:
+        chdir: "{{ home }}"
+    
+    - name: Add SSH keys with agent
+      shell: "ssh-add {{ home }}/.ssh/{{ item }}"
+      args:
+        chdir: "{{ home }}"
+      loop: 
+        - id_rsa_personal
+        - id_rsa_tinkin
