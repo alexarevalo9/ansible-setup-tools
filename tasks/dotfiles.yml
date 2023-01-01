@@ -1,11 +1,11 @@
 - name: Dotfiles configuration
   tags: "dotfiles"
-  become_user: "{{ user }}"
+  become: true
   block:
     - name: Ensure scripts directory exists.
       file:
         dest: "{{ home }}/scripts"
-        mode: 0777
+        mode: 0755
         owner: "{{ user }}"
         group: "{{ user }}"
         state: directory
@@ -21,7 +21,7 @@
       copy:
         src: ./scripts/dotfiles.sh
         dest: "{{ home }}/scripts/dotfiles.sh"
-        mode: 0777
+        mode: 0755
         owner: "{{ user }}"
         group: "{{ user }}"
 
