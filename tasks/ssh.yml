@@ -51,15 +51,10 @@
         owner: "{{ user }}"
         group: "{{ user }}"
     
-    - name: Start SSH Agent
-      shell: eval "$(ssh-agent -s)"
-      args:
-        chdir: "{{ home }}"
-    
     - name: Add SSH keys with agent
-      shell: "ssh-add {{ home }}/.ssh/{{ item }}"
+      shell: |
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_rsa_personal
+        ssh-add ~/.ssh/id_rsa_tinkin
       args:
         chdir: "{{ home }}"
-      loop: 
-        - id_rsa_personal
-        - id_rsa_tinkin
