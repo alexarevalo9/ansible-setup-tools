@@ -1,11 +1,13 @@
 - name: Dotfiles configuration
   tags: "dotfiles"
-  become: true
+  become_user: "{{ user }}"
   block:
     - name: Ensure scripts directory exists.
       file:
         dest: "{{ home }}/scripts"
         mode: 0777
+        owner: "{{ user }}"
+        group: "{{ user }}"
         state: directory
 
     - name: Clone bare repo
@@ -19,6 +21,8 @@
         src: ./scripts/dotfiles.sh
         dest: "{{ home }}/scripts/dotfiles.sh"
         mode: 0777
+        owner: "{{ user }}"
+        group: "{{ user }}"
 
     - name: Run dotfiles script
       become: true

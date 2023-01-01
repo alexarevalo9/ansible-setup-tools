@@ -9,6 +9,8 @@
       file:
         dest: "{{ home }}/scripts"
         mode: 0777
+        owner: "{{ user }}"
+        group: "{{ user }}"
         state: directory
 
     - name: Get NVM Latest Version
