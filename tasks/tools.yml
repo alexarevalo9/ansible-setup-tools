@@ -1,0 +1,21 @@
+- name: Tools
+  tags: "tools"
+  become: true
+  block:
+    - name: Tmux
+      apt:
+        name: tmux
+        state: latest
+        update_cache: yes
+    
+    - name: xclip
+      apt:
+        name: xclip
+        state: latest
+        update_cache: yes
+    
+    - name: fzf
+      apt:
+        name: fzf
+        state: latest
+        update_cache: yes

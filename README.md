@@ -17,6 +17,9 @@ This is a guide to automatically setting up software development tools built on 
  - [x] docker
  - [x] docker-compose
  - [x] zoom
+ - [x] tmux
+ - [x] xclip
+ - [x] fzf
 
 ## Run automation tasks
 
