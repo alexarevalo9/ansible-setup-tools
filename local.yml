@@ -1,0 +1,35 @@
+- hosts: localhost
+  vars:
+    user: 'alex'
+    home: '/home/{{ user }}'
+    source_key: './.ssh'
+    source_files: './files'
+    dest_key: '{{ home }}/.ssh'
+  pre_tasks:
+    - name: Update pacman
+      become: true
+      community.general.pacman:
+        update_cache: true
+        state: present
+    - import_tasks: arch-tasks/check_snapd_installed.yml
+  tasks:
+    - import_tasks: arch-tasks/node-setup.yml
+    - import_tasks: arch-tasks/brave.yml
+    - import_tasks: arch-tasks/dbeaver.yml
+    - import_tasks: arch-tasks/discord.yml
+    # - import_tasks: arch-tasks/postman.yml
+    # - import_tasks: arch-tasks/slack.yml
+    # - import_tasks: arch-tasks/vscode.yml
+    # - import_tasks: arch-tasks/fonts.yml
+    # - import_tasks: arch-tasks/docker.yml
+    # - import_tasks: arch-tasks/docker-compose-setup.yml
+    # - import_tasks: arch-tasks/ssh.yml
+    # - import_tasks: arch-tasks/zsh-setup.yml
+    # - import_tasks: arch-tasks/dotfiles.yml
+    # - import_tasks: arch-tasks/zsh-plugins.yml
+    # - import_tasks: arch-tasks/directories.yml
+    # - import_tasks: arch-tasks/files.yml
+    # - import_tasks: arch-tasks/zoom.yml
+    # - import_tasks: arch-tasks/libreoffice.yml
+    # - import_tasks: arch-tasks/ngrok.yml
+    # - import_tasks: arch-tasks/tmux.yml

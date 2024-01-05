@@ -3,8 +3,4 @@
   tags: "brave"
   block:
     - name: Brave Browser yay installation
-      community.general.pacman:
-        name: brave-bin
-        state: present
-        executable: yay
-        extra_args: --builddir /var/cache/yay
+      shell: yay -S brave-bin --noconfirm
