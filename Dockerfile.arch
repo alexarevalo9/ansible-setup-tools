@@ -3,7 +3,6 @@ ARG TAGS
 WORKDIR /home/alex
 ARG DEBIAN_FRONTEND=noninteractive
 RUN pacman -Sy --noconfirm && pacman -S --noconfirm ansible curl git base-devel
-RUN pacman -S --needed --noconfirm yay
 COPY ansible/arch/local.yml /home/alex/local.yml
 COPY . .
 RUN useradd -m -p $(openssl passwd -1 password) alex
