@@ -15,7 +15,7 @@
   tasks:
     - import_tasks: debian-tasks/node-setup.yml
     - import_tasks: debian-tasks/brave.yml
-    - import_tasks: debian-tasks/dbaver.yml
+    - import_tasks: debian-tasks/dbeaver.yml
     - import_tasks: debian-tasks/discord.yml
     - import_tasks: debian-tasks/postman.yml
     - import_tasks: debian-tasks/slack.yml

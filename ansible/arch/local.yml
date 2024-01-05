@@ -15,7 +15,7 @@
   tasks:
     - import_tasks: arch-tasks/node-setup.yml
     - import_tasks: arch-tasks/brave.yml
-    - import_tasks: arch-tasks/dbaver.yml
+    - import_tasks: arch-tasks/dbeaver.yml
     - import_tasks: arch-tasks/discord.yml
     # - import_tasks: arch-tasks/postman.yml
     # - import_tasks: arch-tasks/slack.yml

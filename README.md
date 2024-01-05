@@ -13,7 +13,7 @@ This is a guide to automatically setting up software development tools built on 
 - [x] slack
 - [x] discord
 - [x] postman
-- [x] dbaver
+- [x] dbeaver
 - [x] docker
 - [x] docker-compose
 - [x] zoom
