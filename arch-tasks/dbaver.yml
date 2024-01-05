@@ -1,0 +1,7 @@
+- name: Dbeaver snap installation
+  become: true
+  tags: "dbeaver"
+  block:
+    - name: Install dbeaver through snap
+      when: snapd_check is succeeded
+      shell: snap install dbeaver-ce

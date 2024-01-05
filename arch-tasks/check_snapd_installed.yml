@@ -1,0 +1,7 @@
+- name: Check if snapd is installed
+  community.general.pacman:
+    name: snapd
+    state: present
+    executable: yay
+    extra_args: --builddir /var/cache/yay
+  register: snapd_check

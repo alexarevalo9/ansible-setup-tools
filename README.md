@@ -28,8 +28,8 @@ To run ansible tasks in your distro just exec the following script `sh ./ansible
 ## Test tasks in a docker container
 
 1. Build docker container with essential tools.
-   `./ansible/debian/build-docker.sh`
+   `./ansible/arch/build-docker.sh`
 2. Run docker container
-   `docker run --rm -it ubuntu-computer bash`
+   `docker run --rm -it arch-computer bash`
 3. Run ansible tasks in the container
    `ansible-playbook local.yml -t docker-compose`

@@ -1,8 +1,11 @@
 FROM archlinux:latest
 ARG TAGS
-WORKDIR /usr/local/bin
+WORKDIR /home/alex
 ARG DEBIAN_FRONTEND=noninteractive
 RUN pacman -Sy --noconfirm && pacman -S --noconfirm ansible curl git base-devel
-COPY ansible/debian/local.yml /usr/local/bin/local.yml
+RUN pacman -S --needed --noconfirm yay
+COPY ansible/arch/local.yml /home/alex/local.yml
 COPY . .
+RUN useradd -m -p $(openssl passwd -1 password) alex
+RUN touch ~/.bashrc
 CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]

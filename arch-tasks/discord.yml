@@ -1,0 +1,7 @@
+- name: Discord
+  become: true
+  tags: "discord"
+  block:
+    - name: Install discord through snap
+      when: snapd_check is succeeded
+      shell: snap install discord
