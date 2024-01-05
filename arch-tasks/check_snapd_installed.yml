@@ -1,5 +1,5 @@
 - name: Snap
-  become: true
+  become: false
   tags: "snap"
   block:
     - name: Install snapd
