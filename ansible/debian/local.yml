@@ -1,0 +1,32 @@
+- hosts: localhost
+  vars:
+    user: 'alex'
+    home: '/home/{{ user }}'
+    source_key: './.ssh'
+    source_files: './files'
+    dest_key: '{{ home }}/.ssh'
+  pre_tasks:
+    - name: Update apt
+      become: true
+      apt:
+        force_apt_get: true
+        update_cache: true
+        state: present
+  tasks:
+    - import_tasks: debian-tasks/node-setup.yml
+    - import_tasks: debian-tasks/brave.yml
+    - import_tasks: debian-tasks/dbeaver.yml
+    - import_tasks: debian-tasks/discord.yml
+    - import_tasks: debian-tasks/postman.yml
+    - import_tasks: debian-tasks/slack.yml
+    - import_tasks: debian-tasks/vscode.yml
+    - import_tasks: debian-tasks/fonts.yml
+    - import_tasks: debian-tasks/docker.yml
+    - import_tasks: debian-tasks/docker-compose-setup.yml
+    - import_tasks: debian-tasks/ssh.yml
+    - import_tasks: debian-tasks/zsh-setup.yml
+    - import_tasks: debian-tasks/dotfiles.yml
+    - import_tasks: debian-tasks/zsh-plugins.yml
+    - import_tasks: debian-tasks/directories.yml
+    - import_tasks: debian-tasks/files.yml
+    - import_tasks: debian-tasks/zoom.yml

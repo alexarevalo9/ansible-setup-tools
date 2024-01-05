@@ -1,0 +1,28 @@
+- name: Node & NVM
+  become: true
+  tags: "node"
+  block:
+    - name: Install Node
+      community.general.pacman:
+        name: ["nodejs", "npm"]
+
+    - name: Ensure scripts directory exists.
+      file:
+        dest: "{{ home }}/scripts"
+        mode: 0777
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        state: directory
+
+    - name: Get NVM Latest Version
+      shell: curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep 'tag_name' | cut -d\" -f4
+      register: nvm_latest_version
+      become_user: root
+
+    - name: Download nvm
+      get_url:
+        url: https://raw.githubusercontent.com/nvm-sh/nvm/{{ nvm_latest_version.stdout }}/install.sh
+        dest: "{{ home }}/scripts/install_nvm.sh"
+
+    - name: Install nvm
+      shell: "bash {{ home }}/scripts/install_nvm.sh"
