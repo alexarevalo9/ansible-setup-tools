@@ -1,7 +1,6 @@
 - name: Postman
-  become: false
+  become: true
   tags: "postman"
   block:
     - name: Postman snap installation
-      when: snapd_check is succeeded
       shell: snap install postman
