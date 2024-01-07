@@ -11,7 +11,7 @@
     - name: Build and install snapd
       shell: |
         cd /tmp/snapd
-        makepkg -si
+        makepkg -si --noconfirm
       args:
         chdir: /tmp/snapd
 
