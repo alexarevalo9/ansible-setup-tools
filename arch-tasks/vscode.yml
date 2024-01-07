@@ -1,0 +1,7 @@
+- name: VSCode
+  become: false
+  tags: "vscode"
+  block:
+    - name: VSCode snap installation
+      when: snapd_check is succeeded
+      shell: snap install code --classic

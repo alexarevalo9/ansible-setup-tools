@@ -1,0 +1,21 @@
+- name: ZSH
+  become: true
+  tags: "zsh"
+  block:
+    - name: Install zsh
+      community.general.pacman:
+        name: zsh
+        state: present
+
+    - name: Change shell to zsh
+      shell: chsh -s $(which zsh)
+
+    - name: Check that the oh-my-zsh exists
+      stat:
+        path: "/home/{{ user }}/.oh-my-zsh"
+      register: oh_my_stats
+
+    - name: Oh-My-Zsh
+      shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+      when: oh_my_stats.stat.exists == False
+      become_user: alex

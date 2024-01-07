@@ -1,0 +1,43 @@
+- name: Fonts
+  become: true
+  tags: "fonts"
+  block:
+    - name: Create fonts directory if it does not exist
+      file:
+        path: /usr/share/fonts
+        state: directory
+
+    - name: Install FiraCode Font
+      community.general.pacman:
+        name: ttf-fira-code
+        state: present
+
+    - name: Clone Powerline Fonts repository
+      git:
+        repo: https://github.com/powerline/fonts.git
+        dest: /tmp/fonts
+        depth: 1
+
+    - name: Install Powerline Fonts
+      shell: ./install.sh
+      args:
+        chdir: /tmp/fonts
+
+    - name: Clean up Powerline Fonts directory
+      file:
+        path: /tmp/fonts
+        state: absent
+        recurse: yes
+
+    - name: Download Meslo LG Regular Font
+      get_url:
+        url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.ttf
+        dest: /usr/share/fonts
+
+    - name: Download Meslo NF Regular Font
+      get_url:
+        url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/MesloLGS%20NF%20Regular.ttf
+        dest: /usr/share/fonts
+
+    - name: Clear and Regenerate fonts
+      shell: fc-cache -f -v
