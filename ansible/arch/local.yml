@@ -17,14 +17,14 @@
     - import_tasks: arch-tasks/brave.yml
     - import_tasks: arch-tasks/dbeaver.yml
     - import_tasks: arch-tasks/discord.yml
-    # - import_tasks: arch-tasks/postman.yml
-    # - import_tasks: arch-tasks/slack.yml
-    # - import_tasks: arch-tasks/vscode.yml
-    # - import_tasks: arch-tasks/fonts.yml
+    - import_tasks: arch-tasks/postman.yml
+    - import_tasks: arch-tasks/slack.yml
+    - import_tasks: arch-tasks/vscode.yml
+    - import_tasks: arch-tasks/fonts.yml
+    - import_tasks: arch-tasks/zsh-setup.yml
     # - import_tasks: arch-tasks/docker.yml
     # - import_tasks: arch-tasks/docker-compose-setup.yml
     # - import_tasks: arch-tasks/ssh.yml
-    # - import_tasks: arch-tasks/zsh-setup.yml
     # - import_tasks: arch-tasks/dotfiles.yml
     # - import_tasks: arch-tasks/zsh-plugins.yml
     # - import_tasks: arch-tasks/directories.yml

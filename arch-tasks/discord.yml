@@ -1,5 +1,5 @@
 - name: Discord
-  become: true
+  become: false
   tags: "discord"
   block:
     - name: Install discord through snap

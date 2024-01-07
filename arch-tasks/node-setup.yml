@@ -5,6 +5,7 @@
     - name: Install Node
       community.general.pacman:
         name: ["nodejs", "npm"]
+        state: present
 
     - name: Ensure scripts directory exists.
       file:

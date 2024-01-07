@@ -1,0 +1,6 @@
+- name: Slack
+  become: false
+  tags: "slack"
+  block:
+    - name: Slack yay installation
+      shell: yay -S slack-desktop --noconfirm
