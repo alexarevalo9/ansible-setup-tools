@@ -11,7 +11,7 @@
       community.general.pacman:
         update_cache: true
         state: present
-    - import_tasks: arch-tasks/check_snapd_installed.yml
+    - import_tasks: arch-tasks/snapd.yml
   tasks:
     - import_tasks: arch-tasks/node-setup.yml
     - import_tasks: arch-tasks/brave.yml
