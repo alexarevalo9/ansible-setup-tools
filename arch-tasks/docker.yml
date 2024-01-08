@@ -1,0 +1,26 @@
+- name: Docker
+  become: true
+  tags: "docker"
+  block:
+    - name: Install docker
+      community.general.pacman:
+        name: docker
+        state: present
+
+    - name: Start Docker service
+      systemd:
+        name: docker.service
+        state: started
+        enabled: yes
+
+    - name: Enable Docker service on boot
+      systemd:
+        name: docker.service
+        enabled: true
+        masked: no
+
+    - name: Add user to docker group
+      user:
+        name: "{{ user }}"
+        groups: docker
+        append: yes

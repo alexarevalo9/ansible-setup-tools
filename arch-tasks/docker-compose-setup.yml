@@ -1,0 +1,9 @@
+- name: Docker
+  become: true
+  tags: "docker-compose"
+  block:
+    - name: Install docker compose
+      community.general.pacman:
+        name: docker-compose
+        state: present
+    
