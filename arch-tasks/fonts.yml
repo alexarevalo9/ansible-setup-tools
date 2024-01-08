@@ -23,12 +23,6 @@
       args:
         chdir: /tmp/fonts
 
-    - name: Clean up Powerline Fonts directory
-      file:
-        path: /tmp/fonts
-        state: absent
-        recurse: yes
-
     - name: Download Meslo LG Regular Font
       get_url:
         url: https://github.com/alexarevalo9/ansible-setup-tools/raw/main/fonts/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.ttf
