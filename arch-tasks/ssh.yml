@@ -1,0 +1,60 @@
+- name: SSH configuration
+  tags: "ssh"
+  become: true
+  block:
+    - name: Ensure .ssh directory exists.
+      file:
+        dest: "{{ dest_key }}"
+        mode: 0755
+        state: directory
+        owner: "{{ user }}"
+        group: "{{ user }}"
+
+    - name: Install personal ssh key
+      copy:
+        src: "{{ source_key }}/{{ item }}"
+        dest: "{{ dest_key }}/{{ item }}"
+        mode: 0600
+        owner: "{{ user }}"
+        group: "{{ user }}"
+      loop: 
+        - id_rsa_personal
+        - id_rsa_tinkin
+
+    - name: Install personal ssh key public
+      copy:
+        src: "{{ source_key }}/{{ item }}.pub"
+        dest: "{{ dest_key }}/{{ item }}.pub"
+        mode: 0600
+        owner: "{{ user }}"
+        group: "{{ user }}"
+      loop: 
+        - id_rsa_personal
+        - id_rsa_tinkin
+
+    - name: Set authorized key took from file
+      authorized_key:
+        user: "{{ user }}"
+        state: present
+        key: "{{ home }}/.ssh/{{ item }}.pub"
+      with_fileglob:
+      - "{{ home }}/.ssh/*.pub"
+      loop: 
+        - id_rsa_personal
+        - id_rsa_tinkin
+    
+    - name: Move ssh config
+      copy:
+        src: "{{ source_key }}/config"
+        dest: "{{ home }}/.ssh/config"
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ user }}"
+    
+    - name: Add SSH keys with agent
+      shell: |
+        eval "$(ssh-agent -s)"
+        ssh-add {{ home }}/.ssh/id_rsa_personal
+        ssh-add {{ home }}/.ssh/id_rsa_tinkin
+      args:
+        chdir: "{{ home }}"
