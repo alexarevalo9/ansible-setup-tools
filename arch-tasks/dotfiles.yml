@@ -1,0 +1,32 @@
+- name: Dotfiles configuration
+  tags: "dotfiles"
+  become: true
+  block:
+    - name: Ensure scripts directory exists.
+      file:
+        dest: "{{ home }}/scripts"
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        state: directory
+
+    - name: Clone bare repo
+      become_user: "{{ user }}"
+      git:
+        repo: 'https://github.com/alexarevalo9/dotfiles.git'
+        dest: "{{ home }}/.cfg"
+        bare: true
+    
+    - name: Copy bash script
+      copy:
+        src: ./scripts/dotfiles.sh
+        dest: "{{ home }}/scripts/dotfiles.sh"
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ user }}"
+
+    - name: Run dotfiles script
+      become: true
+      shell: "bash {{ home }}/scripts/dotfiles.sh {{ home }}/.cfg {{ home }}"
+      args:
+        chdir: "{{ home }}"

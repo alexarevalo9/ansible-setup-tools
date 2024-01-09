@@ -24,8 +24,8 @@
     - import_tasks: arch-tasks/zsh-setup.yml
     - import_tasks: arch-tasks/docker.yml
     - import_tasks: arch-tasks/docker-compose-setup.yml
-    # - import_tasks: arch-tasks/ssh.yml
-    # - import_tasks: arch-tasks/dotfiles.yml
+    - import_tasks: arch-tasks/ssh.yml
+    - import_tasks: arch-tasks/dotfiles.yml
     # - import_tasks: arch-tasks/zsh-plugins.yml
     # - import_tasks: arch-tasks/directories.yml
     # - import_tasks: arch-tasks/files.yml
