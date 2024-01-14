@@ -9,16 +9,14 @@ function config {
 
 mkdir -p .config-backup
 
-config stash
 config checkout
 
 if [ $? = 0 ]; then
   echo "Checked out config."
 else
   echo "Backing up pre-existing dot files."
-  config clean -ndX | awk '{print $3}' | xargs -I{} mkdir -p .config-backup/$(dirname {}) && mv {} .config-backup/{}
-  config checkout
+  config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} bash -c 'mkdir -p $(dirname .config-backup/{}) && mv -- {} .config-backup/{}'
 fi
 
-config stash apply
+config checkout
 config config status.showUntrackedFiles no

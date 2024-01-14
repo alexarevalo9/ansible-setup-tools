@@ -1,0 +1,6 @@
+- name: Utils
+  become: false
+  tags: "utils"
+  block:
+    - name: Alacritty yay installation
+      shell: yay -S alacritty picom rofi-emojis redshift tmux htop --noconfirm
