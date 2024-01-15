@@ -1,0 +1,6 @@
+- name: Zoom
+  become: false
+  tags: "zoom"
+  block:
+    - name: Zoom yay installation
+      shell: yay -S zoom --noconfirm

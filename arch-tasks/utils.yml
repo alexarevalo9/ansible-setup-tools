@@ -2,5 +2,5 @@
   become: false
   tags: "utils"
   block:
-    - name: Alacritty yay installation
-      shell: yay -S alacritty picom rofi-emojis redshift tmux htop --noconfirm
+    - name: Utils yay installation
+      shell: yay -S alacritty picom rofi-emoji redshift tmux htop --noconfirm

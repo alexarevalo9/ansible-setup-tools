@@ -27,8 +27,10 @@
     - import_tasks: arch-tasks/zsh-plugins.yml
     - import_tasks: arch-tasks/ssh.yml
     - import_tasks: arch-tasks/dotfiles.yml
-    # - import_tasks: arch-tasks/directories.yml
-    # - import_tasks: arch-tasks/files.yml
-    # - import_tasks: arch-tasks/zoom.yml
-    # - import_tasks: arch-tasks/libreoffice.yml with snap
-    # - import_tasks: arch-tasks/ngrok.yml with snap
+    - import_tasks: arch-tasks/directories.yml
+    - import_tasks: arch-tasks/files.yml
+    - import_tasks: arch-tasks/zoom.yml
+    - import_tasks: arch-tasks/libreoffice.yml
+    - import_tasks: arch-tasks/ngrok.yml
+    # - import_tasks: arch-tasks/anki.yml
+    # - import_tasks: arch-tasks/studio-3t.yml

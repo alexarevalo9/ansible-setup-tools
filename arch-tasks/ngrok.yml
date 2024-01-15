@@ -1,0 +1,6 @@
+- name: Ngrok
+  become: true
+  tags: "ngrok"
+  block:
+    - name: Install ngrok through snap
+      shell: snap install ngrok

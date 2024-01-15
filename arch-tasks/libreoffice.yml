@@ -1,0 +1,6 @@
+- name: Libreoffice
+  become: true
+  tags: "libreoffice"
+  block:
+    - name: Install libreoffice through snap
+      shell: snap install libreoffice

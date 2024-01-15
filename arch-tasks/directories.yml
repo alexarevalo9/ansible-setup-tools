@@ -1,0 +1,35 @@
+- name: Create Directories
+  become: true
+  tags: "directories"
+  block:
+    - name: Projects
+      file:
+        path: "/home/{{ user }}/Projects"
+        state: directory
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: 0755
+
+    - name: Courses
+      file:
+        path: "/home/{{ user }}/Courses"
+        state: directory
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: 0755
+
+    - name: Tinkin
+      file:
+        path: "/home/{{ user }}/Tinkin"
+        state: directory
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: 0755
+
+    - name: Docker
+      file:
+        path: "/home/{{ user }}/Docker"
+        state: directory
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: 0755
