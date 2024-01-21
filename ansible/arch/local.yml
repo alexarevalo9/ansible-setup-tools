@@ -33,3 +33,4 @@
     - import_tasks: arch-tasks/zoom.yml
     - import_tasks: arch-tasks/libreoffice.yml
     - import_tasks: arch-tasks/ngrok.yml
+    - import_tasks: arch-tasks/gpg.yml

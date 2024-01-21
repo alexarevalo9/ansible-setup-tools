@@ -1,0 +1,42 @@
+- name: GPG configuration
+  tags: "gpg"
+  become: true
+  block:
+    - name: Ensure .gnupg directory exists.
+      file:
+        dest: "{{ home }}/.gnupg"
+        mode: 0755
+        state: directory
+        owner: "{{ user }}"
+        group: "{{ user }}"
+
+    - name: Install personal gpg key
+      copy:
+        src: "./.gnupg/{{ item }}"
+        dest: "{{ home }}/.gnupg/{{ item }}"
+        mode: 0600
+        owner: "{{ user }}"
+        group: "{{ user }}"
+      loop:
+        - job.asc
+        - personal.asc
+
+    - name: Import gpg keys
+      command: "gpg --import {{ home }}/.gnupg/{{ item }}.asc"
+      become_user: "{{ user }}"
+      loop:
+        - job.asc
+        - personal.asc
+
+    - name: Set up trust level for job key
+      expect:
+        command: "gpg --edit-key {{ item }}"
+        responses:
+          Question:
+            - "trust"
+            - "5"
+            - "y"
+      become_user: "{{ user }}"
+      loop:
+        - 38EE2EC63504847241C1D753FAE761ECBB46D1D4
+        - DD91E1E09AAFF0EAC4E9D8C1AC00E248655F5F1C
