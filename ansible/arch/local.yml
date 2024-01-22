@@ -18,7 +18,6 @@
     - import_tasks: arch-tasks/discord.yml
     - import_tasks: arch-tasks/postman.yml
     - import_tasks: arch-tasks/slack.yml
-    - import_tasks: arch-tasks/anki.yml
     - import_tasks: arch-tasks/vscode.yml
     - import_tasks: arch-tasks/utils.yml
     - import_tasks: arch-tasks/fonts.yml

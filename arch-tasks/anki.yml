@@ -1,6 +1,0 @@
-- name: Anki
-  become: false
-  tags: "anki"
-  block:
-    - name: Anki yay installation
-      shell: yay -S anki --noconfirm
