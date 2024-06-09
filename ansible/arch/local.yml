@@ -12,6 +12,9 @@
         update_cache: true
         state: present
   tasks:
+    - import_tasks: arch-tasks/utils.yml
+    - import_tasks: arch-tasks/blueman.yml
+    - import_tasks: arch-tasks/redshift.yml
     - import_tasks: arch-tasks/node-setup.yml
     - import_tasks: arch-tasks/brave.yml
     - import_tasks: arch-tasks/dbeaver.yml
@@ -19,7 +22,6 @@
     - import_tasks: arch-tasks/postman.yml
     - import_tasks: arch-tasks/slack.yml
     - import_tasks: arch-tasks/vscode.yml
-    - import_tasks: arch-tasks/utils.yml
     - import_tasks: arch-tasks/fonts.yml
     - import_tasks: arch-tasks/zsh-setup.yml
     - import_tasks: arch-tasks/docker.yml

@@ -1,0 +1,18 @@
+- name: Blueman
+  become: false
+  tags: "blueman"
+  block:
+    - name: Blueman yay installation
+      shell: yay -S bluez bluez-utils blueman --noconfirm
+
+    - name: Start Blueman service
+      systemd:
+        name: bluetooth.service
+        state: started
+        enabled: yes
+
+    - name: Enable Blueman service on boot
+      systemd:
+        name: bluetooth.service
+        enabled: true
+        masked: no

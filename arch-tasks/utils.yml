@@ -3,4 +3,4 @@
   tags: "utils"
   block:
     - name: Utils yay installation
-      shell: yay -S alacritty picom rofi-emoji redshift tmux htop maim feh xclip --noconfirm
+      shell: yay -S alacritty picom rofi-emoji redshift tmux htop maim feh xclip brightnessctl xkblayout-state xdotool autorandr --noconfirm

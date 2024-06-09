@@ -1,0 +1,11 @@
+- name: Redshift
+  become: true
+  tags: "redshift"
+  block:
+    - name: Ensure redshift.service is enabled for the user
+      command: systemctl --user enable redshift.service
+      become_user: "{{ user }}"
+
+    - name: Ensure redshift.service is started for the user
+      command: systemctl --user start redshift.service
+      become_user: "{{ user }}"
