@@ -23,7 +23,9 @@ This is a guide to automatically setting up software development tools built on 
 
 ## Run automation tasks
 
-To run ansible tasks in your distro just exec the following script `sh ./ansible/debian/ansible-run.sh`
+To run ansible tasks in your distro just exec the following script
+
+`curl -sL https://raw.githubusercontent.com/alexarevalo9/ansible-setup-tools/main/ansible/arch/ansible-run.sh | sh`
 
 ## Test tasks in a docker container
 
